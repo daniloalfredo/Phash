@@ -11,13 +11,14 @@ int main()
     char *im1, *im2;
     im1 = (char*) malloc (tam*sizeof(char));
     im2 = (char*) malloc (tam*sizeof(char));
-    Mat image1, image2;
     ulong64 hash1, hash2;
     int distance = -1; 
     freopen("Comp.txt", "r", stdin);
     freopen("result.txt", "w", stdout);
-    //Mat image;
-    //image = imread( argv[1], 1 );
+    /*lê uma lista de pares de imagens com o seguinte formato
+    img1.ext img2.ext
+    img3.ext img4.ext
+    O programa então calcula o hash de cada par e compara a distância de Hamming entre cada imagem do par*/
     while(scanf("%s %s", im1, im2) > 0)
     {
         ph_dct_imagehash(im1, hash1);

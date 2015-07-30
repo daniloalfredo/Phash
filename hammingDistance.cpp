@@ -6,6 +6,7 @@
 #define len 64
 #define bits 256
 
+//Função converte uma string de um número hexadecimal (e.g. "ff283bc") e converte para long long unsigned int
 long long unsigned int strToHex(char* str)
 {
 	int i;
@@ -21,6 +22,7 @@ long long unsigned int strToHex(char* str)
 	return num;
 }
 
+//calcula o número de bits setados em 1 do número x
 int number_of_ones(long long unsigned int x)
 {
 	int total_ones = 0;
@@ -32,6 +34,7 @@ int number_of_ones(long long unsigned int x)
 	return total_ones;
 }
 
+//calcula a distância de Hamming entre dois hashs de 256 bits
 int hamming(char* str1, char* str2)
 {
 	int i, hamming = 0;
