@@ -54,19 +54,32 @@ int hamming(char* str1, char* str2)
 
 int main(int argc, char** argv)
 {
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-	char *im1, *im2;
+	char *im1, *im2, *filename1, *filename2;
+	char aux[len];
 	int distance;
     im1 = (char*) malloc (bits*sizeof(char));
     im2 = (char*) malloc (bits*sizeof(char));
-    while(scanf("%s %s %s %s", im1, im1, im2, im2) > 0)
+	filename1 = (char*) malloc(bits*sizeof(char));
+	filename2 = (char*) malloc(bits*sizeof(char));
+
+	FILE * input;
+	input = fopen("input.txt", "r");
+	if (input != NULL)
+	{
+		fscanf(input, "%s %s", filename2, im2);
+	}
+	fclose(input);
+	strcpy(aux, argv[1]);
+	strcat(aux, "_output.txt");
+	freopen("hashlist.txt", "r", stdin);
+	freopen(aux, "w", stdout);
+    while(scanf("%s %s", filename1, im1) > 0)
     {
     	distance = hamming(im1, im2);
     	if (distance < 15)
-    		printf("Imagens 1 e 2 são similares\n");
+    		printf("Imagens %s e %s são similares\n", filename1, filename2);
     	else
-    		printf("Imagens nao sao similares\n");
+    		printf("Imagens %s e %s nao sao similares\n", filename1, filename2);
     	printf("Distancia de Hamming: %d\n", distance);
     }
 }
