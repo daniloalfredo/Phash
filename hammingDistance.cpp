@@ -70,7 +70,7 @@ int main(int argc, char** argv)
 	}
 	fclose(input);
 	strcpy(aux, argv[1]);
-	strcat(aux, "_output.txt");
+	strcat(aux, "_blockhash.txt");
 	freopen("hashlist.txt", "r", stdin);
 	freopen(aux, "w", stdout);
     while(scanf("%s %s", filename1, im1) > 0)

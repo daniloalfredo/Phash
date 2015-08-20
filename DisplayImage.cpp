@@ -19,7 +19,7 @@ int main(int argc, char** argv)
     int distance = -1; 
     freopen("imagelist.txt", "r", stdin);
     strcpy(filename, argv[1]);
-    strcat(filename, "_result.txt");
+    strcat(filename, "_phash.txt");
     freopen(filename, "w", stdout);
     //Mat image;
     //image = imread( argv[1], 1 );
