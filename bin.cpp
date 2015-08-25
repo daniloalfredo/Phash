@@ -22,7 +22,7 @@ bool binarize(FILE* fid, int threshold_value, int threshold_type);
 int main( int argc, char** argv )
 {
 	FILE* Imlist = fopen("imagelist.txt", "r");
-	if (!binarize(Imlist, 170, 0))
+	if (!binarize(Imlist, 130, 0))
 		printf("Operation failed\n");
 	else
 		printf("Imagens binarizadas e salvas\n");

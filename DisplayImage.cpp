@@ -19,8 +19,8 @@ int main(int argc, char** argv)
     int distance = -1; 
     freopen("imagelist.txt", "r", stdin);
     strcpy(filename, argv[1]);
-    strcat(filename, "_phash.txt");
-    freopen(filename, "w", stdout);
+    FILE* output = fopen("result_phash.csv", "a");
+    fprintf(output, "%s,", filename);
     //Mat image;
     //image = imread( argv[1], 1 );
     strcpy(filename, "Images/");
@@ -28,12 +28,9 @@ int main(int argc, char** argv)
     {
         ph_dct_imagehash(strcat(filename, im1), hash1);
         distance = ph_hamming_distance(hash1, hash2);
-        if (distance < 15)
-            printf("%s e %s sao similares\n", im1, argv[1]);
-        else
-            printf("%s e %s nao sao similares\n", im1, argv[1]);
-        printf("Distancia entre %s e %s = %d\n\n", im1, argv[1], distance);
+        fprintf(output, "%d,", distance);
         strcpy(filename, "Images/");
     }
+    fprintf(output, "\n");
     return 0;
 }

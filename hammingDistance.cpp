@@ -62,24 +62,21 @@ int main(int argc, char** argv)
 	filename1 = (char*) malloc(bits*sizeof(char));
 	filename2 = (char*) malloc(bits*sizeof(char));
 
-	FILE * input;
-	input = fopen("input.txt", "r");
+	FILE * input = fopen("input.txt", "r");;
+	FILE * output = fopen("result_blockhash.csv", "a");
+	
 	if (input != NULL)
 	{
 		fscanf(input, "%s %s", filename2, im2);
 	}
+
+	fprintf(output, "%s,", filename2);
 	fclose(input);
-	strcpy(aux, argv[1]);
-	strcat(aux, "_blockhash.txt");
 	freopen("hashlist.txt", "r", stdin);
-	freopen(aux, "w", stdout);
     while(scanf("%s %s", filename1, im1) > 0)
     {
     	distance = hamming(im1, im2);
-    	if (distance < 15)
-    		printf("Imagens %s e %s são similares\n", filename1, filename2);
-    	else
-    		printf("Imagens %s e %s nao sao similares\n", filename1, filename2);
-    	printf("Distancia de Hamming: %d\n", distance);
+    	fprintf(output, "%d,", distance);
     }
+    fprintf(output, "\n");
 }
