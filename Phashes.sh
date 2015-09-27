@@ -13,7 +13,7 @@ g++ -o hammingDistance hammingDistance.cpp
 
 #Pré-processamento do pHash
 g++ -o DisplayImage DisplayImage.cpp `pkg-config --cflags --libs opencv` `pkg-config --cflags --libs pHash`
-
+	
 #criação dos arquivos de resultado de cada método
 echo -n blockhash, > result_blockhash.csv
 echo -n phash, > result_phash.csv
